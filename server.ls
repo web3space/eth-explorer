@@ -17,7 +17,7 @@ balance = (query, cb)->
     cb null, data.to-string!
 
 txlist = (query, cb)->
-    cb "Not Implemented"
+    cb null, []
 
 account     = create-module { balance, txlist }
 contract    = create-module { }

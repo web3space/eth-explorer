@@ -10,6 +10,8 @@ angular.module('ethExplorer')
           getAddressInfos().then(function(result){
             $scope.balance = result.balance;
             $scope.balanceInEther = result.balanceInEther;
+            $scope.code = result.code;
+            console.log($scope.code);
           });
         }
 
@@ -19,10 +21,17 @@ angular.module('ethExplorer')
 
           web3.eth.getBalance($scope.addressId,function(error, result) {
             if(!error) {
-                deferred.resolve({
-                  balance: result,
-                  balanceInEther: web3.fromWei(result, 'ether')
+                
+                web3.eth.getCode($scope.addressId,function(error, code) {
+              
+                    deferred.resolve({
+                      balance: result,
+                      balanceInEther: web3.fromWei(result, 'ether'),
+                      code: code
+                    });
+                
                 });
+                
             } else {
                 deferred.reject(error);
             }

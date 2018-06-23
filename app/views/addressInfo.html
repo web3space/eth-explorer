@@ -21,6 +21,16 @@
             <td>Balance (Ether)</td>
             <td>{{balanceInEther}}</a></td>
         </tr>
+        <tr ng:if="code != '0x0'">
+            <td>Smart Contract Code</td>
+            <td>
+                <textarea readonly="readonly">{{code}}</textarea>
+            </td>
+        </tr>
+        <tr ng:if="code == '0x0'">
+            <td>Type</td>
+            <td>Regular Address</td>
+        </tr>
         </tbody>
     </table>
 </div>

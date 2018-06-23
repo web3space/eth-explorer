@@ -26,7 +26,7 @@
     });
   };
   txlist = function(query, cb){
-    return cb("Not Implemented");
+    return cb(null, []);
   };
   account = createModule({
     balance: balance,
