@@ -4,7 +4,7 @@ require! {
 
 create-module = (actions)-> (query, cb)->
      action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action?
+     cb('Action Not Found') if not action?
      action query, cb
 
 balance = (query, cb)->
