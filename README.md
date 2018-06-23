@@ -2,7 +2,7 @@
 
 Nodejs Ethereum Explorer
 
-![EthExplorer Screenshot](http://res.cloudinary.com/nixar-work/image/upload/v1529716465/Screen_Shot_2018-06-23_at_04.09.58.png)
+![EthExplorer Screenshot](http://res.cloudinary.com/nixar-work/image/upload/v1529716647/Screen_Shot_2018-06-23_at_04.17.01.png)
 
 ## License
 
@@ -28,6 +28,7 @@ Or Ganache
 
 
 
+Edit the connection to the ethereum `explorer/app/app.js` -> `var eth_node_url = 'http://0.0.0.0:8545';`
 
 ```
 npm i ganache-cli -g
