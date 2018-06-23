@@ -25,7 +25,7 @@ app = express!
     .use express.static \app
     .get '/api', (req, res)->
         module = modules[req.query.module]
-        res.status(404).send('Module Not Found') if not module!
+        res.status(404).send('Module Not Found') if not module?
         err, data <- module req.query
         res.status(500).send(err.message ? err) if not err?
         res.send data
