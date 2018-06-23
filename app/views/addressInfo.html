@@ -27,6 +27,12 @@
                 <textarea readonly="readonly">{{code}}</textarea>
             </td>
         </tr>
+        <tr ng:if="code != '0x0'">
+            <td>Contract Transaction Count</td>
+            <td>
+                {{transactions}}
+            </td>
+        </tr>
         <tr ng:if="code == '0x0'">
             <td>Type</td>
             <td>Regular Address</td>

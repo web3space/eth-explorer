@@ -1,0 +1,2 @@
+lsc -c *.ls
+lsc -c ./app/scripts/controllers/*.ls
