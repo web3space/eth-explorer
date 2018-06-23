@@ -2,45 +2,22 @@ require! {
     \express
 }
 
+create-module = (actions)-> (query, cb)->
+     action = actions[query.action]
+     res.status(404).send('Action Not Found') if not action?
+     action query, cb
+
 balance = (query, cb)->
     #query.address
     cb "Not Implemented"
 
-account = (query, cb)->
-     actions = {  }
-     action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action!
-     action query, cb
-contract = (query, cb)->
-     actions = {  }
-     action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action!
-     action query, cb
-transaction = (query, cb)->
-     actions = {  }
-     action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action!
-     action query, cb
-block = (query, cb)->
-     actions = {  }
-     action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action!
-     action query, cb
-logs = (query, cb)->
-     actions = {  }
-     action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action!
-     action query, cb
-proxy = (query, cb)->
-     cactions = {  }
-     action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action!
-     action query, cb
-stats = (query, cb)->
-     actions = {  }
-     action = actions[query.action]
-     res.status(404).send('Action Not Found') if not action!
-     action query, cb
+account     = create-module { balance }
+contract    = create-module { }
+transaction = create-module { }
+block       = create-module { }
+logs        = create-module { }
+proxy       = create-module { }
+stats       = create-module { }
 
 modules = { account, contract, transaction, block, logs, proxy, stats } 
 
