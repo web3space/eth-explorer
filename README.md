@@ -1,0 +1,55 @@
+# Ethereum Explorer (Opensource)
+
+Nodejs Ethereum Explorer
+
+![EthExplorer Screenshot](http://res.cloudinary.com/nixar-work/image/upload/v1529716465/Screen_Shot_2018-06-23_at_04.09.58.png)
+
+## License
+
+GPL
+
+## Installation
+
+Install [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "Git installation") if you haven't already
+
+Clone the repo
+
+`git clone https://github.com/ethnamed/explorer`
+
+npm i bower -g
+
+Download [Nodejs and npm](https://docs.npmjs.com/getting-started/installing-node "Nodejs install") if you don't have them
+
+## Run GETH or Ganache
+
+Install [geth](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum "Geth install") if you don't already have it, then run the above command.
+
+Or Ganache
+
+
+
+
+```
+npm i ganache-cli -g
+
+ganache-cli \
+  --hostname="0.0.0.0" \
+  --port=8545 \
+  --networkId=777 \
+  --accounts=50 \
+  --defaultBalanceEther=1000000 \
+  --mnemonic="xmr bch btg ltc eth eos xem ada dash btc zec"
+```
+
+Start the program. All dependencies will be automatically downloaded
+
+```
+npm install
+
+bower install
+
+npm start
+```
+
+
+Then refresh the page in your browser 
