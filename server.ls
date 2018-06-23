@@ -24,6 +24,7 @@ modules = { account, contract, transaction, block, logs, proxy, stats }
 app = express!
     .use express.static \app
     .get '/api', (req, res)->
+        console.log JSON.stringify req.query
         module = modules[req.query.module]
         res.status(404).send('Module Not Found') if not module?
         err, data <- module req.query

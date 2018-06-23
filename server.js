@@ -35,6 +35,7 @@
   };
   app = express().use(express['static']('app')).get('/api', function(req, res){
     var module;
+    console.log(JSON.stringify(req.query));
     module = modules[req.query.module];
     if (module == null) {
       res.status(404).send('Module Not Found');
