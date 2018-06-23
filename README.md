@@ -5,7 +5,9 @@ Nodejs Ethereum Explorer
 Features: 
 
 1. Urls compatible with Etherscan
-2. API compatible with Etherscan (in progress)
+2. Smart-Contract Code Detection
+3. API compatible with Etherscan (in progress)
+
 
 ![EthExplorer Screenshot](http://res.cloudinary.com/nixar-work/image/upload/v1529716647/Screen_Shot_2018-06-23_at_04.17.01.png)
 
