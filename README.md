@@ -26,11 +26,6 @@ Install [geth](https://github.com/ethereum/go-ethereum/wiki/Building-Ethereum "G
 
 Or Ganache
 
-
-
-Edit the connection to the ethereum `explorer/app/app.js` -> `var eth_node_url = 'http://0.0.0.0:8545';`
-
-
 ```
 npm i ganache-cli -g
 
@@ -43,7 +38,10 @@ ganache-cli \
   --mnemonic="xmr bch btg ltc eth eos xem ada dash btc zec"
 ```
 
+Edit the connection to the ethereum `explorer/app/app.js` -> `var eth_node_url = 'http://0.0.0.0:8545';`
+
 Start the program. All dependencies will be automatically downloaded
+
 
 ```
 npm install
