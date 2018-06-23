@@ -43,7 +43,7 @@ ganache-cli \
   --mnemonic="xmr bch btg ltc eth eos xem ada dash btc zec"
 ```
 
-Edit the connection to the ethereum `explorer/app/app.js` -> `var eth_node_url = 'http://0.0.0.0:8545';`
+Edit the connection to the ethereum `explorer/app/config.json` -> `rpcUrl`
 
 Start the program. All dependencies will be automatically downloaded
 
