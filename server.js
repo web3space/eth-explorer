@@ -7,7 +7,7 @@
       var action;
       action = actions[query.action];
       if (action == null) {
-        cb('Action Not Found');
+        return cb('Action Not Found');
       }
       return action(query, cb);
     };
