@@ -1,6 +1,9 @@
 require! {
     \express
+    \cors
+    \./web3.js
 }
+
 
 create-module = (actions)-> (query, cb)->
      action = actions[query.action]
@@ -8,10 +11,15 @@ create-module = (actions)-> (query, cb)->
      action query, cb
 
 balance = (query, cb)->
-    #query.address
+    return cb "Address is required" if not query.address?
+    err, data <- web3.eth.get-balance query.address
+    return cb err if err?
+    cb null, data.to-string!
+
+txlist = (query, cb)->
     cb "Not Implemented"
 
-account     = create-module { balance }
+account     = create-module { balance, txlist }
 contract    = create-module { }
 transaction = create-module { }
 block       = create-module { }
@@ -21,15 +29,23 @@ stats       = create-module { }
 
 modules = { account, contract, transaction, block, logs, proxy, stats } 
 
+api = (query, cb)->
+    console.log JSON.stringify query
+    module = modules[query.module]
+    return cb('Module Not Found') if not module?
+    err, data <- module query
+    return cb err if err?
+    cb null, data
+
+responsity = (res)-> (err, result)->
+    return res.send { status: "0", message: "ERROR", result: err.message ? err } if err?
+    res.send { status: "1" , message: "OK", result }
+
 app = express!
+    .use cors!
     .use express.static \app
     .get '/api', (req, res)->
-        console.log JSON.stringify req.query
-        module = modules[req.query.module]
-        res.status(404).send('Module Not Found') if not module?
-        err, data <- module req.query
-        res.status(500).send(err.message ? err) if not err?
-        res.send data
+        api req.query, responsity(res)
     .get '/*', (req, res)->
         res.redirect("/\##{req.url}")
 
