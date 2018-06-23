@@ -30,6 +30,7 @@ Or Ganache
 
 Edit the connection to the ethereum `explorer/app/app.js` -> `var eth_node_url = 'http://0.0.0.0:8545';`
 
+
 ```
 npm i ganache-cli -g
 
