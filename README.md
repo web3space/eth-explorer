@@ -58,11 +58,11 @@ npm start
 
 
 
-Open http://0.0.0.0:8000
+Open http://127.0.0.1:8000
 
 
 ## API
 
-http://0.0.0.0:8000/api 
+http://127.0.0.1:8000/api 
 
 Documentation: https://etherscan.io/apis
