@@ -2,6 +2,11 @@
 
 Nodejs Ethereum Explorer
 
+Features: 
+
+1. Urls compatible with Etherscan
+2. API compatible with Etherscan (in progress)
+
 ![EthExplorer Screenshot](http://res.cloudinary.com/nixar-work/image/upload/v1529716647/Screen_Shot_2018-06-23_at_04.17.01.png)
 
 ## License
@@ -52,4 +57,12 @@ npm start
 ```
 
 
-Then refresh the page in your browser 
+
+Open http://0.0.0.0:8000
+
+
+## API
+
+http://0.0.0.0:8000/api 
+
+Documentation: https://etherscan.io/apis
