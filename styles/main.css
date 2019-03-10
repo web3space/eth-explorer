@@ -15,6 +15,10 @@ body {
     min-height: 100vh;
 }
 
+input.form-control {
+    width: 400px !important;
+}
+
 
 .navbar-brand {
     padding-left: 0;
