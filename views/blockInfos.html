@@ -1,7 +1,7 @@
 <div class="container" style="padding-top: 50px;">
 
     <h1>Block
-        <small>View information about an Ethereum Block</small>
+        <small>View information about a Block</small>
     </h1>
 
     <div id="block-97785883" class="blockdiv">
@@ -12,9 +12,9 @@
             </tr>
             </tbody>
         </table>
-        <div style="padding-bottom:30px;width:100%;text-align:right;clear:both">
-            <button class="btn btn-primary">{{conf}}</button>
-            <button class="btn btn-success cb"><span>{{gasUsed}} Gas Used</span></button>
+        <div style="padding:10px 0;width:100%;text-align:right;clear:both">
+            <button class="btn btn-info btn-sm trn balance-inline">{{conf}}</button>
+            <button class="btn btn-info btn-sm trn balance-inline"><span>{{gasUsed}} Gas Used</span></button>
         </div>
         <table class="table table-striped">
             <tbody><tr>
@@ -95,7 +95,7 @@
           </tr>
           <tr>
               <td>Input</td>
-              <td>{{tx.input}}</a></td>
+              <td><textarea style="width: 100%">{{tx.input}}</textarea></a></td>
           </tr>
           <tr>
               <td>Value</td>

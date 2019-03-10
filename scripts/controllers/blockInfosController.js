@@ -1,19 +1,20 @@
-angular.module('ethExplorer')
+angular.module('ethExplorer.block', ['ngRoute','ui.bootstrap'])
     .controller('blockInfosCtrl', function ($rootScope, $scope, $location, $routeParams,$q) {
 
 	var web3 = $rootScope.web3;
 
-        $scope.init = function()
+    $scope.init = function()
         {
-
+            $rootScope.loading = true;
             $scope.blockId = $routeParams.blockId;
 
             if($scope.blockId!==undefined) {
 
                 getBlockInfos()
                     .then(function(result){
+                    
                         var number = web3.eth.blockNumber;
-
+                    $rootScope.loading = false;
                     $scope.result = result;
 
                     if(result.hash!==undefined){
@@ -67,7 +68,7 @@ angular.module('ethExplorer')
 
             function getBlockInfos() {
                 var deferred = $q.defer();
-
+                
                 web3.eth.getBlock($scope.blockId,function(error, result) {
                     if(!error) {
                         deferred.resolve(result);

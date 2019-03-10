@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="ethExplorer" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="ethExplorer" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="ethExplorer" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <base href="/explorer/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Web3Space Transaction Explorer</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body class="dark">
+  
+<nav class="navbar navbar-fixed-top">
+    <div class="container">
+
+        <nav class="navbar navbar-light navbar-expand-lg">
+    <a class="navbar-brand" href="./#">
+      WEB3<span class="text-primary">SPACE</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-divider"></li>
+        <li class="theme-selector nav-item">
+          <a class="nav-link" href="javascript:;" onclick="document.querySelector('body').classList.remove('light'); document.querySelector('body').classList.add('dark');">
+            <i class="fa fa-square" aria-hidden="true"></i>
+          </a>
+          <a class="nav-link" href="javascript:;" onclick="document.querySelector('body').classList.remove('dark'); document.querySelector('body').classList.add('light');">
+            <i class="far fa-square" aria-hidden="true"></i>
+          </a>
+        </li>
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+            <form  name="search_form" ng-controller="searchCtrl" ng-submit="processRequest()"  class="navbar-form">
+            <div class="input-group">
+            <input type="text" placeholder="Tx Hash, Address or Block number" name="requestType" required  ng-model="ethRequest"  class="form-control"><br>
+            <div class="input-group-append">
+              <button type="submit" class="btn btn-success">Search</button>
+            </div>
+            </div>
+            </form>
+      </ul>
+      
+    </div>
+  </nav>
+
+
+    </div>
+</nav>
+
+
+<div class="appview" ng-show="$root.loading" style="line-height: 500px; text-align: center;">
+    <div class="loading">
+		<div class="loading-dot"></div>
+		<div class="loading-dot"></div>
+		<div class="loading-dot"></div>
+    <div class="loading-dot"></div>
+</div>
+  </div>
+  <div class="appview" ng-show="$root.loading == false">
+      <div ng-view></div>
+  </div>
+
+<!--Libs-->
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@0.5.0/dist/web3.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!--Core-->
+  <script src="app.js"></script>
+
+<!--Controllers-->
+  <script src="scripts/controllers/mainController.js"></script>
+  <script src="scripts/controllers/addressInfoController.js"></script>
+  <script src="scripts/controllers/blockInfosController.js"></script>
+  <script src="scripts/controllers/transactionInfosController.js"></script>
+
+  <!--Services-->
+    <div id="connectwarning" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <center><div class="modal-header">
+                    <h4 class="modal-title">Allow Access to Geth and Refresh the Page</h4>
+                </div>
+                <div class="modal-body">
+                    <code><p id="modaltext"></p></code>
+                </div></center>
+            </div>
+        </div>
+    </div>
+
+
+<div class="footer text-center">
+    <footer>
+        <hr>
+        <p>
+            © Web3.Space
+        </p>
+    </footer>
+</div>
+<script>
+$("#modaltext").text( 'geth --rpc --rpccorsdomain "'+ window.location.protocol + '//' + window.location.host + '"' );
+</script>
+</body>
+</html>

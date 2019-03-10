@@ -1,7 +1,7 @@
 <div class="container" style="padding-top: 50px;">
 
     <h1>Transaction
-        <small>View information about an Ethereum transaction</small>
+        <small>View information about a Transaction</small>
     </h1>
 
     <div id="tx-97785883" class="txdiv">
@@ -16,7 +16,7 @@
                     <br>
                 </td>
                 <td width="48px" class="" style="padding:4px;text-align:center;vertical-align:middle;">
-                    <img src="https://blockchain.info/Resources/arrow_right_green.png">  <!--TODO upload the image on the server-->
+                    <i class="fas fa-chevron-right"></i>
                 </td>
                 <td class="">
                     <a href="./#/address/{{to}}">{{to}}</a>
@@ -28,9 +28,9 @@
             </tr>
             </tbody>
         </table>
-        <div style="padding-bottom:30px;width:100%;text-align:right;clear:both">   <!--TODO no style tags...-->
-            <button class="btn btn-primary">{{conf}} Confirmations</button>
-            <button class="btn btn-success cb"><span>{{ethValue}} ETH</span></button>
+        <div style="padding:10px 0;width:100%;text-align:right;clear:both">   <!--TODO no style tags...-->
+            <button class="btn btn-info btn-sm trn balance-inline">{{conf}} Confirmations</button>
+            <button class="btn btn-info btn-sm trn balance-inline cb"><span>{{ethValue}} ETH</span></button>
         </div>
         <table class="table table-striped">
             <tbody><tr>
@@ -70,7 +70,7 @@
             </tr>
             <tr>
                 <td>Data</td>
-                <td>{{input}}</td>
+                <td><textarea readonly="readonly" style="width: 100%;">{{input}}</textarea></td>
             </tr>
 
 

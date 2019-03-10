@@ -1,4 +1,4 @@
-angular.module('ethExplorer')
+angular.module('ethExplorer.tx', ['ngRoute','ui.bootstrap'])
     .controller('transactionInfosCtrl', function ($rootScope, $scope, $location, $routeParams,$q) {
 
        var web3 = $rootScope.web3;
@@ -8,12 +8,12 @@ angular.module('ethExplorer')
             $scope.txId=$routeParams.transactionId;
 
             if($scope.txId!==undefined) { // add a test to check if it match tx paterns to avoid useless API call, clients are not obliged to come from the search form...
-
+                $rootScope.loading = true;
                 getTransactionInfos()
                     .then(function(result){
                         //TODO Refactor this logic, asynchron calls + services....
-                        var number = web3.eth.blockNumber;
-
+                    var number = web3.eth.blockNumber;
+                    $rootScope.loading = false;
                     $scope.result = result;
 
                     if(result.blockHash!==undefined){
