@@ -9,6 +9,7 @@
       return cb err if err?
       cb null
   init = ->
+    cb = console.log
     $rootScope.loading = true
     err, number <- $rootScope.web3.eth.getBlockNumber
     return cb err if err?

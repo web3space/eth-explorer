@@ -24,6 +24,8 @@
       });
     };
     init = function(){
+      var cb;
+      cb = console.log;
       $rootScope.loading = true;
       return $rootScope.web3.eth.getBlockNumber(function(err, number){
         if (err != null) {
