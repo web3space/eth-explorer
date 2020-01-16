@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html lang="en" ng-app="ethExplorer" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-  <base href="/explorer/">
+  <base href="/">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Web3Space Transaction Explorer</title>
@@ -19,12 +19,18 @@
     <div class="container">
 
         <nav class="navbar navbar-light navbar-expand-lg">
-    <a class="navbar-brand" href="./#">
-      WEB3<span class="text-primary">SPACE</span>
+    <a class="navbar-brand" href="https://affilcoin.com">
+      <img src="https://affilcoin.com/static/img/logo.de4fc5a8.svg" alt="affilcoin" style="height: 40px" />
     </a>
+	<!--
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+	-->
+	<button class="navbar-toggler" type="button" id="button_open_menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-divider"></li>
@@ -70,7 +76,7 @@
   </div>
 
 <!--Libs-->
-  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@0.5.0/dist/web3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.0.0-beta.34/dist/web3.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.min.js"></script>
@@ -106,12 +112,17 @@
     <footer>
         <hr>
         <p>
-            © Web3.Space
+            © Affilcoin
         </p>
     </footer>
 </div>
 <script>
 $("#modaltext").text( 'geth --rpc --rpccorsdomain "'+ window.location.protocol + '//' + window.location.host + '"' );
+$(document).ready(function(){
+	$('#button_open_menu').click(function(){
+		$('#navbarNav').toggle();
+	});
+});
 </script>
 </body>
 </html>
