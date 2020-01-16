@@ -1,0 +1,84 @@
+#cert = :configDir/live/:hostname/cert.pem
+cert = ./config/acme//live/drweb.world/cert.pem
+privkey = ./config/acme//live/drweb.world/privkey.pem
+chain = ./config/acme//live/drweb.world/chain.pem
+fullchain = ./config/acme//live/drweb.world/fullchain.pem
+
+# Options and defaults used in the renewal process
+[renewalparams]
+no_self_upgrade = True
+apache_enmod = a2enmod
+no_verify_ssl = False
+ifaces = None
+apache_dismod = a2dismod
+register_unsafely_without_email = False
+apache_handle_modules = True
+uir = None
+installer = None
+nginx_ctl = nginx
+config_dir = ./config/acme/
+text_mode = True
+# junk?
+# https://github.com/letsencrypt/letsencrypt/issues/1955
+func = <function obtain_cert at 0x7f093a163c08>
+staging = False
+prepare = False
+work_dir = None
+tos = True
+init = False
+http01_port = None
+duplicate = False
+noninteractive_mode = True
+# this is for the domain
+key_path = ./config/acme//live/drweb.world/privkey.pem
+nginx = False
+nginx_server_root = /etc/nginx
+fullchain_path = :fullchain_path
+email = yourtestmail@gmail.com
+csr = None
+agree_dev_preview = None
+redirect = None
+verb = certonly
+verbose_count = -3
+config_file = None
+renew_by_default = True
+hsts = False
+apache_handle_sites = True
+authenticator = webroot
+domains = drweb.world, #comma,delimited,list
+rsa_key_size = 2048
+apache_challenge_location = /etc/apache2
+# starts at 0 and increments at every renewal
+checkpoints = 0
+manual_test_mode = False
+apache = False
+cert_path = :cert_path
+webroot_path = /tmp/acme-eab4921b23e09c97/acme-challenge, # comma,delimited,list
+reinstall = False
+expand = False
+strict_permissions = False
+apache_server_root = /etc/apache2
+# https://github.com/letsencrypt/letsencrypt/issues/1948
+account = 7d94d9b97f77ff0eb2eb1f9558ae0556
+dry_run = False
+manual_public_ip_logging_ok = False
+chain_path = :chain_path
+break_my_certs = False
+standalone = False
+manual = False
+server = https://acme-v02.api.letsencrypt.org/directory
+standalone_supported_challenges = "http-01,tls-sni-01"
+webroot = True
+os_packages_only = False
+apache_init_script = None
+user_agent = None
+apache_le_vhost_ext = -le-ssl.conf
+debug = False
+tls_sni_01_port = 443
+logs_dir = /tmp/acme-eab4921b23e09c97/log
+apache_vhost_root = /etc/apache2/sites-available
+configurator = None
+must_staple = False
+[[webroot_map]]
+# :hostname = :webroot_path
+drweb.world = /tmp/acme-eab4921b23e09c97/acme-challenge
