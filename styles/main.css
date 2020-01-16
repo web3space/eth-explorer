@@ -19,6 +19,14 @@ input.form-control {
     width: 400px !important;
 }
 
+@media screen and (max-width: 990px) {
+	input.form-control {
+		width: 0 !important;
+	}
+	.collapse {
+		margin-bottom: 30px;
+	}
+}
 
 .navbar-brand {
     padding-left: 0;
