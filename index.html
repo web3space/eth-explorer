@@ -22,9 +22,15 @@
     <a class="navbar-brand" href="https://affilcoin.com">
       <img src="https://affilcoin.com/static/img/logo.de4fc5a8.svg" alt="affilcoin" style="height: 40px" />
     </a>
+	<!--
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+	-->
+	<button class="navbar-toggler" type="button" id="button_open_menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+	
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li class="nav-divider"></li>
@@ -112,6 +118,11 @@
 </div>
 <script>
 $("#modaltext").text( 'geth --rpc --rpccorsdomain "'+ window.location.protocol + '//' + window.location.host + '"' );
+$(document).ready(function(){
+	$('#button_open_menu').click(function(){
+		$('#navbarNav').toggle();
+	});
+});
 </script>
 </body>
 </html>
