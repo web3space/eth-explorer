@@ -19,7 +19,8 @@
           }
           return web3.eth.getTransactionCount($scope.addressId, function(err, transactions){
             var balanceInEther;
-            balanceInEther = web3.fromWei(balance, 'ether');
+			
+            balanceInEther = web3.utils.fromWei(balance, 'ether');
             $rootScope.loading = false;
             return cb(null, {
               balance: balance,

@@ -1,21 +1,31 @@
 angular.module('ethExplorer.tx', ['ngRoute','ui.bootstrap'])
     .controller('transactionInfosCtrl', function ($rootScope, $scope, $location, $routeParams,$q) {
-
-       var web3 = $rootScope.web3;
-	
+		var web3 = $rootScope.web3;
+		
         $scope.init=function()
         {
             $scope.txId=$routeParams.transactionId;
+			
+			web3.eth.getTransactionReceipt($scope.txId).then((res)=>{
+				console.log('res: '+res);
+			}, (err) => {
+				console.log('err: '+err);
+			});
 
             if($scope.txId!==undefined) { // add a test to check if it match tx paterns to avoid useless API call, clients are not obliged to come from the search form...
                 $rootScope.loading = true;
                 getTransactionInfos()
-                    .then(function(result){
+                  .then(function(result){
+					if (result == null) {
+						$rootScope.loading = false;
+						alert('Невозможно отобразить данные о транзакции');
+						return console.log('getTransactionInfos err: '+result);
+					}
                         //TODO Refactor this logic, asynchron calls + services....
                     var number = web3.eth.blockNumber;
                     $rootScope.loading = false;
                     $scope.result = result;
-
+					
                     if(result.blockHash!==undefined){
                         $scope.blockHash = result.blockHash;
                     }
@@ -52,7 +62,7 @@ angular.module('ethExplorer.tx', ['ngRoute','ui.bootstrap'])
                         }
                     }
 
-                });
+                }, err => console.log(err));
 
             }
 
@@ -64,6 +74,7 @@ angular.module('ethExplorer.tx', ['ngRoute','ui.bootstrap'])
 
 
             function getTransactionInfos(){
+				
                 var deferred = $q.defer();
 
                 web3.eth.getTransaction($scope.txId,function(error, result) {
@@ -82,6 +93,5 @@ angular.module('ethExplorer.tx', ['ngRoute','ui.bootstrap'])
 
         };
         $scope.init();
-        console.log($scope.result);
 
     });
